@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atul Mishra | Aspiring Developer & Tech Enthusiast</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --dark-gray: #475569;
+            --tech-blue: #0ea5e9;
+            --tech-purple: #7c3aed;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, #0f172a 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"><animate attributeName="d" dur="20s" repeatCount="indefinite" values="M0,0 L100,0 L100,100 L0,100 Z; M0,10 L100,0 L90,100 L0,90 Z; M0,0 L100,10 L90,100 L10,100 Z; M0,0 L100,0 L100,100 L0,100 Z"/></path></svg>');
+            background-size: cover;
+            opacity: 0.5;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--tech-blue);
+            object-fit: cover;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--tech-blue), var(--tech-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .header-text h2 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            color: white;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+        }
+        
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        section h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+        
+        .summary p {
+            margin-bottom: 1rem;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-category li::before {
+            content: "▹";
+            color: var(--primary);
+        }
+        
+        .education-item, .experience-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .education-item:last-child, .experience-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .education-item h3, .experience-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .education-details, .experience-details {
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .project-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .project-header h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .tech-pill {
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .project-body {
+            padding: 1.5rem;
+        }
+        
+        .project-body p {
+            margin-bottom: 1rem;
+        }
+        
+        .certifications-list {
+            list-style: none;
+        }
+        
+        .certifications-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .certifications-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--tech-blue);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile {
+                flex-direction: column;
+                margin-bottom: 2rem;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .skills-container, .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile">
+                    <img src="assets/images/profile2.png" alt="Atul Mishra" class="profile-img" id="profile-pic">
+                    <div class="header-text">
+                        <h1>Atul Mithilesh Mishra</h1>
+                        <h2>Aspiring Web Developer & Tech Enthusiast</h2>
+                        <div class="contact-info">
+                            <a href="tel:+917841902883" class="contact-item">
+                                <i class="fas fa-phone"></i> +91 7841902883
+                            </a>
+                            <a href="mailto:mishra.atul.mithilesh@gmail.com" class="contact-item">
+                                <i class="fas fa-envelope"></i> mishra.atul.mithilesh@gmail.com
+                            </a>
+                            <a href="https://linkedin.com/in/atul-mishra-981375277" target="_blank" class="contact-item">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i> Nallasopara, Maharashtra
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="summary">
+            <h2><i class="fas fa-user"></i> Professional Summary</h2>
+            <p>Motivated and detail-oriented IT undergraduate with a passion for full stack web development and building scalable digital solutions. Adept at designing user interfaces, implementing backend logic, and collaborating in agile environments.</p>
+            <p>Skilled in both front-end and back-end technologies, with a proven track record of hands-on project experience and leadership in tech initiatives.</p>
+        </section>
+
+        <section class="skills">
+            <h2><i class="fas fa-code"></i> Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Languages</h3>
+                    <ul>
+                        <li>C, C++, Java, Python</li>
+                        <li>C#, JavaScript, R</li>
+                        <li>SQL, HTML, CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> Frameworks & Tools</h3>
+                    <ul>
+                        <li>Bootstrap, TailwindCSS</li>
+                        <li>Node.js (basic), Flask (basic)</li>
+                        <li>MySQL, MongoDB (basic)</li>
+                        <li>Git, VS Code, Android Studio</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Concepts & Skills</h3>
+                    <ul>
+                        <li>OOP, Data Structures & Algorithms</li>
+                        <li>REST APIs, Version Control</li>
+                        <li>Leadership, Communication</li>
+                        <li>Time Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="education-item">
+                <h3>B.Sc. Information Technology</h3>
+                <div class="education-details">
+                    <span>Nirmala Memorial Foundation College, Mumbai</span>
+                    <span>2022 - Present</span>
+                </div>
+                <p>GPA: 9.6/10</p>
+            </div>
+            <div class="education-item">
+                <h3>Intermediate (Science)</h3>
+                <div class="education-details">
+                    <span>Utkarsha Vidyalaya and Jr. College</span>
+                    <span>2020 - 2022</span>
+                </div>
+                <p>Score: 62.17%</p>
+            </div>
+            <div class="education-item">
+                <h3>High School</h3>
+                <div class="education-details">
+                    <span>Divine Life High School</span>
+                    <span>2020</span>
+                </div>
+                <p>Score: 87%</p>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Multi-Religious Web App</h3>
+                        <div class="project-tech">
+                            <span class="tech-pill">React.js</span>
+                            <span class="tech-pill">TailwindCSS</span>
+                            <span class="tech-pill">Node.js</span>
+                            <span class="tech-pill">MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>Built a responsive application to display sacred texts and prayer times. Integrated user authentication and RESTful APIs with religion-based content filtering.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Everything About Student</h3>
+                        <div class="project-tech">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">MySQL</span>
+                            <span class="tech-pill">CSV</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>Attendance management system that stores student records and attendance using Python, MySQL, and CSV handling. Practiced CRUD and real-world data storage.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>ToDo List App</h3>
+                        <div class="project-tech">
+                            <span class="tech-pill">HTML</span>
+                            <span class="tech-pill">CSS</span>
+                            <span class="tech-pill">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>Developed a dynamic to-do list using vanilla JS, DOM manipulation, and local storage.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Rock, Paper, Scissors Game</h3>
+                        <div class="project-tech">
+                            <span class="tech-pill">HTML</span>
+                            <span class="tech-pill">CSS</span>
+                            <span class="tech-pill">JS</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p>Interactive browser game with event handling, responsive design, and score tracking.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Mini Projects</h3>
+                        <div class="project-tech">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">APIs</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p><strong>RoboSpeaker:</strong> Built a voice assistant using pyttsx3 and speech recognition.</p>
+                        <p><strong>Weather Reporter:</strong> Real-time weather forecast app using OpenWeatherMap API.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="certifications">
+            <h2><i class="fas fa-certificate"></i> Certifications & Achievements</h2>
+            <ul class="certifications-list">
+                <li><strong>C Programming</strong> - IIT Bombay Spoken Tutorial, Mar 2023</li>
+                <li><strong>Data and Analytics</strong> - Cloud Counselage, Jul 2023</li>
+                <li><strong>DSA Workshop</strong> - Nirmala College, 2024</li>
+                <li><strong>Chairperson, Technotsav 2024–25</strong> — Led 20+ volunteers; 500+ attendees</li>
+                <li><strong>Top Scorer</strong> - Object-Oriented Programming Lab, 2023</li>
+            </ul>
+        </section>
+
+        <section class="experience">
+            <h2><i class="fas fa-briefcase"></i> Experience & Leadership</h2>
+            <div class="experience-item">
+                <h3>Chairperson, Technotsav</h3>
+                <p>Directed college tech fest with end-to-end management. (2024–25)</p>
+            </div>
+            <div class="experience-item">
+                <h3>Co-editor, ASCII Newsletter</h3>
+                <p>Managed tech newsletter content and layout. (2024–25)</p>
+            </div>
+            <div class="experience-item">
+                <h3>Tutor, Divine Mercy Education</h3>
+                <p>Provided Math/Science tutoring to grades 8–10. (2022–Present)</p>
+            </div>
+            <div class="experience-item">
+                <h3>Volunteer, NSS Unit</h3>
+                <p>Engaged in social initiatives and awareness campaigns. (2022–23)</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h3>Let's Connect</h3>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/atul-mishra-981375277" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:mishra.atul.mithilesh@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+917841902883" class="social-link">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Atul Mishra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // You can add JavaScript functionality here
+        // For example, to change the profile picture when you upload one
+        document.getElementById('profile-pic').addEventListener('click', function() {
+            // This would be replaced with actual image upload logic
+            alert('Click to upload your profile picture');
+        });
+    </script>
+</body>
+</html>
